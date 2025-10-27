@@ -20,11 +20,14 @@ connectDB();
 corsOptions = {
   origin: [
     "http://localhost:5173",
-    "https://upivot-assignment-emdg.vercel.app/login",
+    "https://upivot-assignment-emdg.vercel.app",
   ],
   credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 app.use(cors(corsOptions));
+
 
 app.get('/', limiter, (req, res) => {
   res.send('Hello World!')
